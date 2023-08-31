@@ -1,0 +1,48 @@
+# Libraries
+import time
+from adafruit_servokit import ServoKit
+
+# Initialize ServoKit for the PWA board.
+kit = ServoKit(channels=16)
+
+# Specify the channels you are using on the PWM driver
+channel_servo = 8
+channel_motor1 = 0
+channel_motor2 = 4
+
+# To set the servo range to 180 degrees
+# You can adjust the values if needed
+kit.servo[channel_servo].set_pulse_width_range(400,2300)
+kit.continuous_servo[channel_motor1].set_pulse_width_range(1200,1800)
+
+
+def penup():
+    lasttime = time.time()
+    while True:
+        currenttime = time.time()
+        kit.servo[channel_servo].angle = 90
+        if (currenttime - lasttime) > 1:
+            break
+
+def pendown():
+    lasttime = time.time()
+    while True:
+        currenttime = time.time()
+        kit.servo[channel_servo].angle = 0
+        if (currenttime - lasttime) > 1:
+            break
+
+
+
+# Main program 
+try:
+
+    noError = True
+    while noError:
+        penup()
+        pendown()
+        
+# Quit the program when the user presses CTRL + C
+except KeyboardInterrupt:
+        channel = channel_motor1
+        kit.continuous_servo[channel].throttle = 0 
