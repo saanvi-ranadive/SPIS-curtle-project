@@ -291,7 +291,7 @@ def drawHI():
 # Main program 
 try:
     penup()
-    draw
+    drawHI()
     
         
 # Quit the program when the user presses CTRL + C
