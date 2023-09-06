@@ -30,7 +30,7 @@ def penup():
     time.sleep(1)
 
 def pendown():
-    kit.servo[channel_servo].angle = 50
+    kit.servo[channel_servo].angle = 51
     time.sleep(1)
 
 def pencap():
@@ -61,8 +61,7 @@ def left(a):
     speed = -1
     kit.continuous_servo[0].throttle = speed
     kit.continuous_servo[4].throttle = 0.98*speed
-    #kit.continuous_servo[4].throttle = speed
-    t = (1/57)*a
+    t = (1/57.7)*a
     time.sleep(t)
     kit.continuous_servo[0].throttle = 0
     kit.continuous_servo[4].throttle = 0
@@ -76,35 +75,164 @@ def right(a):
     kit.continuous_servo[0].throttle = 0
     kit.continuous_servo[4].throttle = 0
 
-def drawHI():
+def drawH():
+    left(91.5)
+    pendown()
+    forward(5)
+    penup()
+    backward(2.5)
+    right(91.5)
+    pendown()
+    forward(3)
+    penup()
+    right(88)
+    backward(2.3)
+    pendown()
+    forward(5)
+    penup()
+    left(94)
+    forward(1)
+
+def drawI():
     left(90)
     pendown()
     forward(5)
     penup()
-    backward(2.5)
-    right(90)
-    pendown()
-    forward(3)
-    penup()
-    right(90)
-    backward(2.5)
+    backward(5)
+    right(87)
+    forward(1)
+    
+def drawM():
+    left(95)
     pendown()
     forward(5)
+    right(135)
+    forward(2)
+    left(90)
+    forward(2)
+    right(130)
+    forward(5.5)
     penup()
     left(92)
-    forward(2)
+    forward(1)
+    
+def drawC():
+    forward(3)
+    left(90)
+    forward(5)
+    left(90)
+    pendown()
+    forward(3)
+    left(89)
+    forward(5)
+    left(90)
+    forward(3.7)
+    penup()
+    forward(1)
+    
+def drawU():
+    right(87)
+    backward(5.25)
+    pendown()
+    forward(5)
+    left(91)
+    forward(3)
+    left(90)
+    forward(5.5)
+    penup()
+    backward(5.5)
+    right(90)
+    forward(1)
+
+def drawR():
     left(93)
     pendown()
     forward(5)
+    right(89)
+    forward(3)
+    right(88)
+    forward(2.5)
+    right(88)
+    forward(3)
+    left(144)
+    forward(4.8)
     penup()
+    left(47)
+    forward(1)
+
+def drawT():
+    left(91)
+    forward(5.5)
     right(90)
-    forward(15)
+    pendown()
+    forward(4)
+    penup()
+    backward(2.2)
+    right(90)
+    pendown()
+    forward(5.5)
+    penup()
+    left(94)
+    forward(3)
+    
+def drawL():
+    right(88.5)
+    backward(5.4)
+    pendown()
+    forward(5.1)
+    left(90.5)
+    forward(4)
+    penup()
+    forward(1)
+
+def drawE():
+    pendown()
+    forward(4)
+    penup()
+    backward(4)
+    left(92)
+    pendown()
+    forward(2.5)
+    right(88.5)
+    forward(4)
+    penup()
+    backward(4)
+    left(92)
+    pendown()
+    forward(2.5)
+    right(88)
+    forward(4)
+    penup()
+    right(89)
+    forward(5)
+    left(94)
+    forward(1)
+
+def drawsquare():
+    penup()
+    pendown()
+    for x in range(4):
+        forward(4)
+        left(90)
+    penup()
     
 # Main program 
 try:
     penup()
-    drawHI()
-    
+    drawH()
+    drawI()
+    forward(4)
+    drawI()
+    drawM()
+#     left(25)
+#     backward(20)
+#     right(22)
+#     drawC()
+#     drawU()
+#     drawR()
+#     drawT()
+#     drawL()
+#     drawE()
         
 # Quit the program when the user presses CTRL + C
 except KeyboardInterrupt:
