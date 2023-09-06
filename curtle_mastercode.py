@@ -30,11 +30,11 @@ def penup():
     time.sleep(1)
 
 def pendown():
-    kit.servo[channel_servo].angle = 51
-    time.sleep(1.5)
+    kit.servo[channel_servo].angle = 50
+    time.sleep(1)
 
 def pencap():
-    kit.servo[channel_servo].angle = 5
+    kit.servo[channel_servo].angle = 15
     time.sleep(1)
     
 # motion
@@ -61,7 +61,8 @@ def left(a):
     speed = -1
     kit.continuous_servo[0].throttle = speed
     kit.continuous_servo[4].throttle = 0.98*speed
-    t = (1/54.5)*a
+    #kit.continuous_servo[4].throttle = speed
+    t = (1/57)*a
     time.sleep(t)
     kit.continuous_servo[0].throttle = 0
     kit.continuous_servo[4].throttle = 0
@@ -154,11 +155,6 @@ def drawE():
     forward(1)
     
 def drawS():
-    penup()
-    forward(4)
-    left(90)
-    forward(6)
-    left(90)
     pendown()
     forward(4)
     left(90)
@@ -170,8 +166,10 @@ def drawS():
     right(90)
     forward(4)
     penup()
-    left(180)
-    forward(5)
+    right(90)
+    forward(6)
+    left(90)
+    forward(1)
 
 def drawP():
     left(90)
@@ -208,11 +206,10 @@ def drawR():
 def drawI():
     left(90)
     pendown()
-    forward(6)
+    forward(3)
     penup()
-    right(180)
-    forward(6)
-    left(90)
+    backward(3)
+    right(90)
     forward(1)
 
 def drawspace():
@@ -244,41 +241,58 @@ def draw0():
     forward(4)
     left(90)
     forward(6)
-    penup()
     left(90)
+    penup()
     forward(5)
 
 def draw3():
+    pendown()
+    forward(4)
     left(90)
     forward(6)
-    right(90)
-    pendown()
-    forward(4)
-    right(90)
-    forward(3)
-    right(90)
+    left(90)
     forward(4)
     penup()
-    right(180)
-    forward(4)
-    right(90)
-    pendown()
+    left(90)
     forward(3)
-    right(90)
+    left(90)
+    pendown()
     forward(4)
     penup()
-    right(180)
+    right(90)
+    forward(3)
+    left(90)
+    forward(1)
+    
+def drawHI():
+    left(90)
+    pendown()
     forward(5)
-
-# SPIS 2023
-
+    penup()
+    backward(2.5)
+    right(90)
+    pendown()
+    forward(3)
+    penup()
+    right(90)
+    backward(2.5)
+    pendown()
+    forward(5)
+    penup()
+    left(92)
+    forward(2)
+    left(93)
+    pendown()
+    forward(5)
+    penup()
+    right(90)
+    forward(15)
+    
 # Main program 
 try:
     penup()
-    draw2()
-    draw0()
-    draw2()
-    draw3()
+    draw
+    
         
 # Quit the program when the user presses CTRL + C
 except KeyboardInterrupt:
