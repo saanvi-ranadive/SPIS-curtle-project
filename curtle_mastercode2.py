@@ -30,7 +30,7 @@ def penup():
     time.sleep(1)
 
 def pendown():
-    kit.servo[channel_servo].angle = 51
+    kit.servo[channel_servo].angle = 52
     time.sleep(1)
 
 def pencap():
@@ -85,7 +85,7 @@ def drawH():
     pendown()
     forward(3)
     penup()
-    right(88)
+    right(90)
     backward(2.3)
     pendown()
     forward(5)
@@ -94,7 +94,7 @@ def drawH():
     forward(1)
 
 def drawI():
-    left(90)
+    left(92)
     pendown()
     forward(5)
     penup()
@@ -103,14 +103,14 @@ def drawI():
     forward(1)
     
 def drawM():
-    left(95)
+    left(93)
     pendown()
     forward(5)
     right(135)
     forward(2)
     left(90)
     forward(2)
-    right(130)
+    right(135)
     forward(5.5)
     penup()
     left(92)
@@ -118,14 +118,14 @@ def drawM():
     
 def drawC():
     forward(3)
-    left(90)
+    left(93)
     forward(5)
-    left(90)
+    left(91)
     pendown()
     forward(3)
-    left(89)
+    left(91)
     forward(5)
-    left(90)
+    left(91)
     forward(3.7)
     penup()
     forward(1)
@@ -216,23 +216,41 @@ def drawsquare():
         left(90)
     penup()
     
+def drawheart():
+    forward(6)
+    left(140)
+    pendown()
+    forward(4)
+    right(89)
+    forward(2)
+    right(89)
+    forward(2)
+    left(92)
+    forward(2)
+    right(89)
+    forward(2)
+    right(89)
+    forward(5)
+    penup()
+    right(44)
+    backward(20)
+    
+    
 # Main program 
 try:
     penup()
-    drawH()
-    drawI()
-    forward(4)
-    drawI()
-    drawM()
-#     left(25)
-#     backward(20)
-#     right(22)
-#     drawC()
-#     drawU()
-#     drawR()
-#     drawT()
-#     drawL()
-#     drawE()
+    drawheart()
+#     drawH()
+#     drawI()
+#     forward(4)
+#     drawI()
+#     drawM()
+#      drawC()
+#      drawU()
+#      drawR()
+#      drawT()
+#      drawL()
+#      drawE()
         
 # Quit the program when the user presses CTRL + C
 except KeyboardInterrupt:
